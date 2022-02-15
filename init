@@ -1,0 +1,5 @@
+#!/bin/bash
+
+cat /root/.zshrc | sed 's/^plugins.*$/plugins=(git zsh-syntax-highlighting zsh-autosuggestions)/' > /tmp/.zshrc &&
+cat /tmp/.zshrc > /root/.zshrc &&
+zsh
