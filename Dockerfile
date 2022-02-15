@@ -28,4 +28,4 @@ COPY init .
 
 WORKDIR /app
 
-CMD ["init"]
+CMD ["initlab"]
