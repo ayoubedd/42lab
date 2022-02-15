@@ -24,7 +24,7 @@ RUN chsh -s /bin/zsh
 RUN git clone https://github.com/zsh-users/zsh-autosuggestions.git /root/.oh-my-zsh/plugins/zsh-autosuggestions
 RUN git clone https://github.com/zsh-users/zsh-syntax-highlighting.git /root/.oh-my-zsh/plugins/zsh-syntax-highlighting
 WORKDIR /usr/bin
-COPY init .
+COPY initlab .
 
 WORKDIR /app
 
