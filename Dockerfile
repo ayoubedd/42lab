@@ -26,6 +26,6 @@ RUN git clone https://github.com/zsh-users/zsh-syntax-highlighting.git /root/.oh
 WORKDIR /usr/bin
 COPY src/initlab .
 
-WORKDIR /app
+WORKDIR /src
 
 CMD ["initlab"]
