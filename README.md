@@ -14,6 +14,7 @@ The image has pretty much all you need in developing & debugging your 42 Project
 | NORMINETTE      | ✅        |
 | GDB             | ✅        |
 | LLDB            | ✅        |
+| VALGRIND        | ✅        |
 | STRACE          | ✅        |
 | LTRACE          | ✅        |
 | VIM             | ✅        |
