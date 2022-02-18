@@ -55,7 +55,7 @@ You should see the name of the image among others if there is.
 Now that we have the image downloaded, we can start the Container.
 
 ```sh
-docker run -d -v "$HOME/.ssh/":/root/.ssh -v "$(PWD)":/src --name 42lab 42lab
+docker run -d -v "$HOME/.ssh/":/root/.ssh -v "$(PWD)":/src --name 42lab ayoubedd/42lab
 ```
 
 \*By running the provided command you are going to launch a new docker container named 42lab and your current working directory is going to be auto mounted in your container, so you can debug your existing projects in your host machine.
