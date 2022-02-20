@@ -99,6 +99,21 @@ if you exit the container, it doesn't mean that it is stopped. You can list the 
 ```sh
 docker ps
 ```
+to stop the container you need to run the following command.
+
+```sh
+docker stop 42lab
+```
+*change the name of the container if you did so when you were creating the container.
+
+
+### Removing the container
+
+If you done with this crappy conatiner and you wan't to get rid of it. you can run the following command.
+
+```sh
+docker container rm 42lab
+```
 
 ## Congratulations 🎉🎉
 
