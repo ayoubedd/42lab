@@ -17,10 +17,8 @@ The image has pretty much all you need in developing & debugging your 42 Project
 | VALGRIND        | ✅        |
 | STRACE          | ✅        |
 | LTRACE          | ✅        |
-| VIM             | ✅        |
-| NEOVIM          | ✅        |
+| NASM            | ✅        |
 | MAKE            | ✅        |
-| ZSH & OH MY ZSH | ✅        |
 
 ## Features
 
