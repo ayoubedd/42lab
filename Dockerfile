@@ -15,6 +15,7 @@ RUN apt install zsh \
 								lldb \
 								valgrind \
 								strace \
+                nasm \
 								ltrace -y
 RUN pip3 install norminette c-formatter-42
 RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
@@ -24,8 +25,10 @@ RUN chsh -s /bin/zsh
 RUN git clone https://github.com/zsh-users/zsh-autosuggestions.git /root/.oh-my-zsh/plugins/zsh-autosuggestions
 RUN git clone https://github.com/zsh-users/zsh-syntax-highlighting.git /root/.oh-my-zsh/plugins/zsh-syntax-highlighting
 WORKDIR /usr/bin
-COPY src/initlab .
+COPY src/initlab /usr/bin/
+COPY src/loop4ever /usr/bin/
+RUN /usr/bin/initlab
 
 WORKDIR /src
 
-CMD ["initlab"]
+CMD ["loop4ever"]
