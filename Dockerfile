@@ -16,6 +16,7 @@ RUN apt install zsh \
 								valgrind \
 								strace \
                 nasm \
+                bear \
 								ltrace -y
 RUN pip3 install norminette c-formatter-42
 RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
