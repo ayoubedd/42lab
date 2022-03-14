@@ -1,15 +1,11 @@
 #!/bin/bash
 
-cat /root/.zshrc | sed 's/^plugins.*$/plugins=(git zsh-syntax-highlighting zsh-autosuggestions)/' > /tmp/.zshrc &&
-cat /tmp/.zshrc > /root/.zshrc
-
-
 echo "
 eval \`ssh-agent\` 1>/dev/null
 if [ \"\$?\" -eq 0 ]
 then
-	for i in \$(ls /root/.ssh/*.pub)
+	for i in \$(ls ~/.ssh/*.pub)
 	do
 		ssh-add "\$\(echo \$i \| sed 's/.pub//g'\)"
 	done
-fi" >> /root/.zshrc
+fi" >> ~/.zshrc

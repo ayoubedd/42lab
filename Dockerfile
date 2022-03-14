@@ -1,34 +1,41 @@
-FROM ubuntu:latest
+FROM archlinux:latest
 
-RUN apt update && apt upgrade -y
-RUN ln -fs /usr/share/zoneinfo/Africa/Casablanca /etc/localtime
-RUN apt install zsh \
-								git \
-								vim \
-								neovim \
-								python3 \
-								python3-pip \
-								curl \
-								wget \
-								clang \
-								gdb \
-								lldb \
-								valgrind \
-								strace \
-                nasm \
-                bear \
-								ltrace -y
+RUN pacman -Syu	--noconfirm neovim \
+							vim \
+							zsh \
+							bash \
+							git \
+							tree \
+							curl \
+							wget \
+							bear \
+							make \
+							sudo \
+							gcc \
+							clang \
+							gdb \
+							lldb \
+							strace \
+							ltrace \
+							valgrind \
+							rust \
+							go \
+							python \
+							python-pip \
+							openssh
 RUN pip3 install norminette c-formatter-42
+ENV USER user42
+RUN useradd -mU $USER
+RUN usermod -aG wheel $USER
+RUN echo "$USER:toor" | chpasswd
+RUN echo "root:toor" | chpasswd
+RUN chsh -s /bin/zsh $USER
+USER user42
 RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
 RUN curl https://get.volta.sh | bash
-RUN /root/.volta/bin/volta install node
-RUN chsh -s /bin/zsh
-RUN git clone https://github.com/zsh-users/zsh-autosuggestions.git /root/.oh-my-zsh/plugins/zsh-autosuggestions
-RUN git clone https://github.com/zsh-users/zsh-syntax-highlighting.git /root/.oh-my-zsh/plugins/zsh-syntax-highlighting
-WORKDIR /usr/bin
-COPY src/initlab /usr/bin/
-COPY src/loop4ever /usr/bin/
-RUN /usr/bin/initlab
+RUN ~/.volta/bin/volta install node
+COPY src/loop4ever src/initlab /usr/bin/
+RUN initlab
 
 WORKDIR /src
 
