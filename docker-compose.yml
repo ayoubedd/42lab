@@ -1,0 +1,9 @@
+services:
+  42lab:
+    image: ayoubedd/42lab:beta
+    volumes:
+      - 42lab:/home/user42/
+      - ~/.ssh:/home/user42/.ssh
+      - ~/:/host
+volumes:
+  42lab:

@@ -11,6 +11,7 @@ RUN pacman -Syu	--noconfirm neovim \
 							bear \
 							make \
 							sudo \
+							github-cli \
 							gcc \
 							clang \
 							gdb \
@@ -31,12 +32,8 @@ RUN echo "$USER:toor" | chpasswd
 RUN echo "root:toor" | chpasswd
 RUN chsh -s /bin/zsh $USER
 USER user42
-RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
-RUN curl https://get.volta.sh | bash
-RUN ~/.volta/bin/volta install node
 COPY src/loop4ever src/initlab /usr/bin/
-RUN initlab
 
-WORKDIR /src
+WORKDIR /home/user42/
 
 CMD ["loop4ever"]

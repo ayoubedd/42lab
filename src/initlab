@@ -1,6 +1,12 @@
 #!/bin/bash
 
+function init {
+	sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+	curl https://get.volta.sh | bash
+	~/.volta/bin/volta install node
 echo "
+export INITIALIZED=TRUE
+
 eval \`ssh-agent\` 1>/dev/null
 if [ \"\$?\" -eq 0 ]
 then
@@ -9,3 +15,9 @@ then
 		ssh-add "\$\(echo \$i \| sed 's/.pub//g'\)"
 	done
 fi" >> ~/.zshrc
+}
+
+if [ "$INITIALIZED" != "TRUE" ]
+then
+	init
+fi
